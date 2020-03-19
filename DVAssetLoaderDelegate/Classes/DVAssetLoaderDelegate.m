@@ -69,7 +69,7 @@ static NSTimeInterval const kDefaultLoadingTimeout = 15;
 #pragma mark - Resource loader delegate
 
 - (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest {
-    if (![loadingRequest.request.URL.scheme isEqualToString:[[self class] scheme]]) {
+    if (![[[self class] scheme] containsString:loadingRequest.request.URL.scheme]) {
         return NO;
     }
     
